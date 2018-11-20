@@ -15,7 +15,13 @@ public class Servis {
 		racunari.add(racunarZaEvidenciju);
 	}
 	
-	public void preuzmiURad(String evidencioniBroj) {}
+	public void preuzmiURad(String evidencioniBroj) {
+		for (EvidencijaRacunara evidencija : racunari) {
+			if(evidencija.getEvidencioniBroj().equals(evidencioniBroj)){
+				evidencija.setStatusServisa(Status.U_RADU);
+			}
+		}
+	}
 	
 	public void zavrsiServis(String evidencioniBroj) {}
 	
