@@ -13,9 +13,8 @@ public class EvidencijaRacunara {
 	private Status statusServisa;
 	private Racunar racunar;
 
-	public EvidencijaRacunara(String evidencioniBroj, String vlasnik, LocalDate datumPrijemaServisa,
-		Racunar racunar) {
-		this(evidencioniBroj, vlasnik, datumPrijemaServisa, null, Status.ZA_POPRAVKU, racunar);
+	public EvidencijaRacunara(String evidencioniBroj, String vlasnik, Racunar racunar) {
+		this(evidencioniBroj, vlasnik, LocalDate.now(), null, Status.ZA_POPRAVKU, racunar);
 	}
 	
 	public EvidencijaRacunara(String evidencioniBroj, String vlasnik, LocalDate datumPrijemaServisa,
