@@ -1,5 +1,6 @@
 package servis.evidencija;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,14 @@ public class Servis {
 		}
 	}
 	
-	public void zavrsiServis(String evidencioniBroj) {}
+	public void zavrsiServis(String evidencioniBroj) {
+		for (EvidencijaRacunara evidencija : racunari) {
+			if(evidencija.getEvidencioniBroj().equals(evidencioniBroj)){
+				evidencija.setStatusServisa(Status.ZAVRSEN_SERVIS);
+				evidencija.setDatumZavrsetkaServisa(LocalDate.now());
+			}
+		}
+	}
 	
 	public void racunariNaServisu() {
 		for (EvidencijaRacunara evidencija : racunari) {

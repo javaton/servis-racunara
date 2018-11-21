@@ -30,6 +30,7 @@ public class Aplikacija {
 		System.out.println("   1 - pregled racunara na servisu");
 		System.out.println("   2 - unos nove evidencije");
 		System.out.println("   3 - uzmi na obradu");
+		System.out.println("   4 - zavrsi servis");
 
 		int ulaznaKomanda = ulaz.nextInt();
 		if(ulaznaKomanda == 0) {
@@ -49,6 +50,11 @@ public class Aplikacija {
 			System.out.println("Unesi evidencioni broj: ");
 			String evidencioniBroj = ulaz.next();
 			servisSasa.preuzmiURad(evidencioniBroj);
+		}
+		if(ulaznaKomanda == 4) {
+			System.out.println("Unesi evidencioni broj: ");
+			String evidencioniBroj = ulaz.next();
+			servisSasa.zavrsiServis(evidencioniBroj);
 		}
 		}
 	}
