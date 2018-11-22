@@ -12,6 +12,7 @@ public class EvidencijaRacunara {
 	private LocalDate datumZavrsetkaServisa;
 	private Status statusServisa;
 	private Racunar racunar;
+	private Naplata naplata;
 
 	public EvidencijaRacunara(String evidencioniBroj, String vlasnik, Racunar racunar) {
 		this(evidencioniBroj, vlasnik, LocalDate.now(), null, Status.ZA_POPRAVKU, racunar);
@@ -30,8 +31,17 @@ public class EvidencijaRacunara {
 
 	public void informacijeOEvidenciji() {
 		System.out.println("Racunar " + racunar.getSerijskiBroj()
-		+ " je u statusu " + statusServisa);
+		+ " je u statusu " + statusServisa + ", datum prijema je " + datumPrijemaServisa);
+		if(datumZavrsetkaServisa != null) {
+			System.out.println("Datum zavrsetka je " + datumZavrsetkaServisa);
+		}
 	}
+	
+@Override
+public String toString() {
+	return "Racunar " + racunar.getSerijskiBroj()
+	+ " je u statusu " + statusServisa;
+}
 
 	public String getEvidencioniBroj() {
 		return evidencioniBroj;
@@ -80,6 +90,16 @@ public class EvidencijaRacunara {
 	public void setRacunar(Racunar racunar) {
 		this.racunar = racunar;
 	}
+
+	public Naplata getNaplata() {
+		return naplata;
+	}
+
+	public void setNaplata(Naplata naplata) {
+		this.naplata = naplata;
+	}
+	
+	
 	
 	
 }

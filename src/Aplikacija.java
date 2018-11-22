@@ -1,14 +1,16 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
 import racunar.LapTop;
 import racunar.Racunar;
 import servis.evidencija.EvidencijaRacunara;
+import servis.evidencija.Naplata;
 import servis.evidencija.Servis;
 
 public class Aplikacija {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		//priprema podataka
 		Servis servisSasa = new Servis();
 		
@@ -31,6 +33,7 @@ public class Aplikacija {
 		System.out.println("   2 - unos nove evidencije");
 		System.out.println("   3 - uzmi na obradu");
 		System.out.println("   4 - zavrsi servis");
+		System.out.println("   5 - otpremi racunar");
 		System.out.println("   8 - LapTop racunari");
 		int ulaznaKomanda = ulaz.nextInt();
 		if(ulaznaKomanda == 0) {
@@ -54,7 +57,19 @@ public class Aplikacija {
 		if(ulaznaKomanda == 4) {
 			System.out.println("Unesi evidencioni broj: ");
 			String evidencioniBroj = ulaz.next();
-			servisSasa.zavrsiServis(evidencioniBroj);
+			System.out.println("Unesi iznos: ");
+			long iznos = ulaz.nextLong();
+			System.out.println("Unesi valutu: ");
+			String valuta = ulaz.next();
+			Naplata n = new Naplata(iznos, valuta);
+			servisSasa.zavrsiServis(evidencioniBroj, n);
+		} 		
+		if(ulaznaKomanda == 5) {
+			System.out.println("Unesi evidencioni broj: ");
+			String evidencioniBroj = ulaz.next();
+			System.out.println("Da li je placeno true/false ");
+			Boolean placeno = ulaz.nextBoolean();
+			servisSasa.otpremiRacunar(evidencioniBroj, placeno);
 		}
 		if(ulaznaKomanda == 8) {
 			servisSasa.lapTopRacunariNaServisu();
