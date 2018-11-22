@@ -31,7 +31,7 @@ public class Aplikacija {
 		System.out.println("   2 - unos nove evidencije");
 		System.out.println("   3 - uzmi na obradu");
 		System.out.println("   4 - zavrsi servis");
-
+		System.out.println("   8 - LapTop racunari");
 		int ulaznaKomanda = ulaz.nextInt();
 		if(ulaznaKomanda == 0) {
 			System.out.println("*** Izlaz iz aplikacije. ***");
@@ -55,6 +55,9 @@ public class Aplikacija {
 			System.out.println("Unesi evidencioni broj: ");
 			String evidencioniBroj = ulaz.next();
 			servisSasa.zavrsiServis(evidencioniBroj);
+		}
+		if(ulaznaKomanda == 8) {
+			servisSasa.lapTopRacunariNaServisu();
 		}
 		}
 	}

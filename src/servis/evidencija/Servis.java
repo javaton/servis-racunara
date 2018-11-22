@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import racunar.LapTop;
+
 public class Servis {
 
 	private List<EvidencijaRacunara> racunari; 
@@ -36,6 +38,14 @@ public class Servis {
 	public void racunariNaServisu() {
 		for (EvidencijaRacunara evidencija : racunari) {
 			evidencija.informacijeOEvidenciji();
+		}
+	}
+	
+	public void lapTopRacunariNaServisu() {
+		for (EvidencijaRacunara evidencija : racunari) {
+			if(evidencija.getRacunar() instanceof LapTop) {
+				evidencija.informacijeOEvidenciji();
+			}
 		}
 	}
 }
